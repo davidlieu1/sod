@@ -11,20 +11,20 @@ def getin(name):
 
 def exists():
     try:
-        with open('data.txt', 'r'):
+        with open('./data/data.txt', 'r'):
             pass
     except:
-        with open('data.txt', 'w') as f:
+        with open('./data/data.txt', 'w') as f:
             json.dump({'$date of creation': str(datetime.now())}, f)
 
 def load():
     exists()
-    with open('data.txt', 'r') as f:
+    with open('./data/data.txt', 'r') as f:
         data = json.load(f)
     return data
 
 def save(data):
-    with open('data.txt', 'w') as f:
+    with open('./data/data.txt', 'w') as f:
         json.dump(data, f)
 
 def entry(data, time, song, artist):
